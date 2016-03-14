@@ -41,7 +41,9 @@ class inputViwController: UIViewController {
     
 }
 extension inputViwController{
-
+    /** 新增数据
+        HDataBox.insertObject(stu)
+    */
     @IBAction func save(sender: AnyObject) {
         var text:String = ""
         var flag:Bool = false
@@ -57,17 +59,25 @@ extension inputViwController{
         }
     }
 
-
+    /** 删除某条数据
+       HDataBox.deleteObject(stu!)
+     */
     @IBAction func deleteOne(sender: AnyObject) {
         let stu = self.getStudent()
         guard let _ = stu else {return     }
         HDataBox.deleteObject(stu!)
     }
 
-
+    /** 得到某类型的所有数据
+      HDataBox.selectAllObjects(&self.dataArray)
+     */
     @IBAction func lookAll(sender: AnyObject) {
     self.navigationController?.pushViewController(resultViewController(), animated: true)
     }
+    
+    /** 更多数据库操作 请看
+          HDataBox.swift
+    */
 }
 extension inputViwController{
     func getStudent()->Student?{
